@@ -10,7 +10,7 @@ void main() async {
 }
 
 class AuthApp extends StatefulWidget {
-  const AuthApp({ Key? key }) : super(key: key);
+  const AuthApp({Key? key}) : super(key: key);
 
   @override
   _AuthAppState createState() => _AuthAppState();
@@ -27,7 +27,8 @@ class _AuthAppState extends State<AuthApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Auth User (Logged ' + (user == null ? 'out' : 'in') + ')'),
+          title:
+              Text('Auth User (Logged ' + (user == null ? 'out' : 'in') + ')'),
         ),
         body: Center(
           child: Column(
@@ -37,27 +38,31 @@ class _AuthAppState extends State<AuthApp> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  ElevatedButton(child: Text('Sign Up'),
-                  onPressed: () async {
-                    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      email: emailController.text,
-                      password: passwordController.text,
-                    );
-                    setState(() {});
-                  }),
-                  ElevatedButton(child: Text('Sign In'),
-                  onPressed: () async {
-                    await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: emailController.text,
-                      password: passwordController.text,
-                    );
-                    setState(() {});
-                  }),
-                  ElevatedButton(child: Text('Log Out'),
-                  onPressed: () async {
-                    await FirebaseAuth.instance.signOut();
-                    setState(() {});
-                  }),
+                  ElevatedButton(
+                      child: Text('Sign Up'),
+                      onPressed: () async {
+                        await FirebaseAuth.instance
+                            .createUserWithEmailAndPassword(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
+                        setState(() {});
+                      }),
+                  ElevatedButton(
+                      child: Text('Sign In'),
+                      onPressed: () async {
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email: emailController.text,
+                          password: passwordController.text,
+                        );
+                        setState(() {});
+                      }),
+                  ElevatedButton(
+                      child: Text('Log Out'),
+                      onPressed: () async {
+                        await FirebaseAuth.instance.signOut();
+                        setState(() {});
+                      }),
                 ],
               ),
             ],
